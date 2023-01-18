@@ -52,7 +52,6 @@ sudo su
 
 Do not have time to write this at the moment. One may ask for clarification on GitHub issues, as the code lacks comments and would be a bit hard to follow.
 
-
 # Options
 
 *  `-p INT`: number of positions [1]
@@ -66,12 +65,19 @@ Do not have time to write this at the moment. One may ask for clarification on G
 
 Note that only the default parameters and values in the above examples in running section have been tested.
 
-# Notes
+# Random Notes
 
 - Documentation and error checking are minimal as it takes too much time. For clarification you can use GitHub issues.
 - Not optimised or feature rich - so perhaps underestimate the capability of a binary format.
 - mean read length (-r) is not the mean value of all the reads that is modelled by gamma distribution. It is NOT the max read length.
 - This is not an API. A chunk based writing API is a matter of implementation.
 - Only tested on Linux with limited gcc versions. May work on Mac. Getting these working on Windows is just a simple implementation matter.
--
 - There could be bugs or mistakes, feel free to point them out.
+- This is NOT a signal simulator intended for basecalling. See [Squigulator](https://github.com/hasindu2008/squigulator) instead.
+- Opening many files was only for easy implementation.
+- Multiple threads can be used for writing to a single SLOW5 file, though not implemented here.
+- The 2-pass concept is inherently suitable for using expensive SSD as a cache before writing to cheap HDD or even a NAS (not implemented).
+
+
+
+
