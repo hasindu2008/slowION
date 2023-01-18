@@ -15,7 +15,7 @@ You will need to install zlib and zstd 1.3 or higher development libraries. You 
 
 ```
 sudo apt-get install zlib1g-dev libzstd1-dev #in latest Ubuntu: libzstd-dev
-git clone --recursive https://github.com/hasindu2008/slowION
+git clone --recursive https://github.com/hasindu2008/slowION && cd slowION
 make
 ./slowION
 ```
@@ -46,7 +46,8 @@ sudo su
 # Results
 
 - laptop with a 11th Gen i7-11800H, 32 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 32 positions with 3000 channels in each (96000 channels in total).
-- a gaming desktop with a AMD Ryzen Threadripper 3970X, 128 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 72 positions with 3000 channels in each (216000 channel in total).
+- a gaming desktop with a AMD Ryzen Threadripper 3970X, 128 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 72 positions with 3000 channels in each (216000 channels in total).
+- NVIDIA Jetson Xavier AGX with a Armv8.2 processor, 16 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 14 positions with 3000 channels in each (42000 channels in total).
 
 # Methods
 
