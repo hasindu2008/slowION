@@ -50,14 +50,16 @@ The following tables shows how many sequencing positions (3000 channels per posi
 
 | system                   | CPU (cores/threads)                  | RAM    | O/S       | Disk System | File system | positions | total channels |
 |--------------------------|--------------------------------------|--------|-----------|-------------|-------------|-----------|----------------|
-| laptop                   | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Ubuntu    | SSD         | EXT4        | 32        | 96000          |
-| laptop 2                  | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Pop OS 22    | SSD         | EXT4        |         |           |
+| laptop (Dell Inspiron)                  | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Ubuntu 18   | SSD         | EXT4        | 32        | 96000          |
+| laptop (Dell XPS)                  | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Pop OS 22    | SSD         | EXT4        |   48      |   144000        |
 | gaming desktop           | AMD Ryzen Threadripper 3970X (32/64) | 128 GB | Ubuntu 18 | SSD         | EXT4        | 72        | 216000         |
 | NVIDIA Jetson Xavier AGX | Armv8.2 (8/8)                        | 16 GB  | Ubuntu 18 | SSD         | EXT4        | 14        | 42000          |
-| server with HDD          | Intel Xeon Gold 6154 (36/72)         | 377 GB | Ubuntu 18 | HDD (12 disks RAID 6)   | EXT4        | 72        | 216000         |
-| server with network mount    | Intel Xeon Silver 4114 CPU (20/40)   | 377 GB | Ubuntu 18 | An HDD NAS (12 disks RAID 10)     | EXT4 over NFS        | 32        | 96000          |
-| Mac M1 mini   | ARM M1 (8/8)   | 8 GB | macOS 12.1 | SSD     | APFS        |        |          |
+| server with HDD          | Intel Xeon Gold 6154 (36/72)         | 377 GB | Ubuntu 18 | HDD (12 disks RAID 6)!   | EXT4        | 72        | 216000         |
+| server with network mount    | Intel Xeon Silver 4114 CPU (20/40)   | 377 GB | Ubuntu 18 | An HDD NAS (12 disks RAID 10)!     | EXT4 over NFS        | 32        | 96000          |
+| Mac M1 mini   | ARM M1 (8/8)   | 8 GB | macOS 12.1 | SSD     | APFS        |   10     |  30000        |
+| MacBook M2   | ARM M2 (8/8)   | 24 GB | macOS 12.1 | SSD     | APFS        |   24     |  72000        |
 
+Note: The benchmark was run for an hour on the gaming desktop and the servers, while only for 5 minutes on others due to limited free storage space.
 
 # Methods
 
