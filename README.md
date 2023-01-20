@@ -20,6 +20,7 @@ make
 ./slowION
 ```
 
+On CentOS use `sudo yum install libzstd-devel`. On Mac, use `brew install zstd`. On Mac M1, if zstd.h is still not found, give the location to make as `LDFLAGS=-L/opt/homebrew/lib/ CPPFLAGS=-I/opt/homebrew/include/ make`.
 
 # Running
 
@@ -45,9 +46,18 @@ sudo su
 
 # Results
 
-- laptop with a 11th Gen i7-11800H, 32 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 32 positions with 3000 channels in each (96000 channels in total).
-- a gaming desktop with a AMD Ryzen Threadripper 3970X, 128 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 72 positions with 3000 channels in each (216000 channels in total).
-- NVIDIA Jetson Xavier AGX with a Armv8.2 processor, 16 GB RAM, SSD storage (EXT4 file system), running Ubuntu can keep up with 14 positions with 3000 channels in each (42000 channels in total).
+The following tables shows how many sequencing positions (3000 channels per position) and many total channels each system could keep up.
+
+| system                   | CPU (cores/threads)                  | RAM    | O/S       | Disk System | File system | positions | total channels |
+|--------------------------|--------------------------------------|--------|-----------|-------------|-------------|-----------|----------------|
+| laptop                   | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Ubuntu    | SSD         | EXT4        | 32        | 96000          |
+| laptop 2                  | Intel 11th Gen i7-11800H (8/16)      | 32 GB  | Pop OS 22    | SSD         | EXT4        |         |           |
+| gaming desktop           | AMD Ryzen Threadripper 3970X (32/64) | 128 GB | Ubuntu 18 | SSD         | EXT4        | 72        | 216000         |
+| NVIDIA Jetson Xavier AGX | Armv8.2 (8/8)                        | 16 GB  | Ubuntu 18 | SSD         | EXT4        | 14        | 42000          |
+| server with HDD          | Intel Xeon Gold 6154 (36/72)         | 377 GB | Ubuntu 18 | HDD (12 disks RAID 6)   | EXT4        | 72        | 216000         |
+| server with network mount    | Intel Xeon Silver 4114 CPU (20/40)   | 377 GB | Ubuntu 18 | An HDD NAS (12 disks RAID 10)     | EXT4 over NFS        | 32        | 96000          |
+| Mac M1 mini   | ARM M1 (8/8)   | 8 GB | macOS 12.1 | SSD     | APFS        |        |          |
+
 
 # Methods
 
@@ -72,7 +82,7 @@ Note that only the default parameters and values in the above examples in runnin
 - Not optimised or feature rich - so perhaps underestimate the capability of a binary format.
 - mean read length (-r) is not the mean value of all the reads that is modelled by gamma distribution. It is NOT the max read length.
 - This is not an API. A chunk based writing API is a matter of implementation.
-- Only tested on Linux with limited gcc versions. May work on Mac. Getting these working on Windows is just a simple implementation matter.
+- Only tested on Linux and Mac with limited gcc and clang versions Getting these working on Windows is just a simple implementation matter.
 - There could be bugs or mistakes, feel free to point them out.
 - This is NOT a signal simulator intended for basecalling. See [Squigulator](https://github.com/hasindu2008/squigulator) instead.
 - Opening many files was only for easy implementation.
